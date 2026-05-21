@@ -82,10 +82,10 @@ export default function Footer() {
               marginBottom: '18px'
             }}>Legal</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Privacy Policy</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Terms of Use</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Sitemap</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>RSS Feed</Link>
+              <Link href="/privacy" className="sec-aside" style={{ color: 'var(--ink3)' }}>Privacy Policy</Link>
+              <Link href="/terms" className="sec-aside" style={{ color: 'var(--ink3)' }}>Terms of Use</Link>
+              <Link href="/sitemap" className="sec-aside" style={{ color: 'var(--ink3)' }}>Sitemap</Link>
+              <a href="/rss.xml" className="sec-aside" style={{ color: 'var(--ink3)' }}>RSS Feed</a>
             </div>
           </div>
         </div>
