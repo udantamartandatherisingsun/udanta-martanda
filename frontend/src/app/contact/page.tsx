@@ -91,7 +91,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="mono" style={{ fontSize: '0.8rem', opacity: 0.5, display: 'block' }}>EMAIL</span>
-                    <span className="serif" style={{ fontSize: '1.2rem' }}>editorial@udantmartand.in</span>
+                    <span className="serif" style={{ fontSize: '1.2rem' }}>udantamartandatherisingsun@gmail.com</span>
                   </div>
                 </div>
 
@@ -101,7 +101,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="mono" style={{ fontSize: '0.8rem', opacity: 0.5, display: 'block' }}>PHONE</span>
-                    <span className="serif" style={{ fontSize: '1.2rem' }}>+91 731 245 0000</span>
+                    <span className="serif" style={{ fontSize: '1.2rem' }}>+91 9244113993, +91 9691110995</span>
                   </div>
                 </div>
 

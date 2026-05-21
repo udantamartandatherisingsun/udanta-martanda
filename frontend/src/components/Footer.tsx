@@ -31,7 +31,9 @@ export default function Footer() {
               India&apos;s Heritage<br />
               in Print &amp; Digital<br /><br />
               Est. 1826 · Reborn Digital 2026<br />
-              Indore, Madhya Pradesh, India
+              Indore, Madhya Pradesh, India<br /><br />
+              GST: 23DFAPK0323C1ZE@<br />
+              <a href="/Udyam_Registration_Certificate.pdf" target="_blank" rel="noreferrer" style={{ textDecoration: 'underline' }}>MSME Certificate</a>
             </p>
           </div>
           
@@ -66,6 +68,7 @@ export default function Footer() {
               <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Our Team</Link>
               <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Contact</Link>
               <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Advertise</Link>
+              <a href="https://www.youtube.com/channel/UCPtOt_XNkZGKjKpoL2AQdLQ" target="_blank" rel="noreferrer" className="sec-aside" style={{ color: 'var(--ink3)' }}>YouTube</a>
             </div>
           </div>
 
