@@ -64,10 +64,10 @@ export default function Footer() {
               marginBottom: '18px'
             }}>Company</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>About Us</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Our Team</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Contact</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Advertise</Link>
+              <Link href="/about" className="sec-aside" style={{ color: 'var(--ink3)' }}>About Us</Link>
+              <Link href="/team" className="sec-aside" style={{ color: 'var(--ink3)' }}>Our Team</Link>
+              <Link href="/contact" className="sec-aside" style={{ color: 'var(--ink3)' }}>Contact</Link>
+              <Link href="/advertise" className="sec-aside" style={{ color: 'var(--ink3)' }}>Advertise</Link>
               <a href="https://www.youtube.com/channel/UCPtOt_XNkZGKjKpoL2AQdLQ" target="_blank" rel="noreferrer" className="sec-aside" style={{ color: 'var(--ink3)' }}>YouTube</a>
             </div>
           </div>
