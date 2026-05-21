@@ -47,10 +47,10 @@ export default function Footer() {
               marginBottom: '18px'
             }}>Sections</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>News</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Documentaries</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>E-Newspaper</Link>
-              <Link href="#" className="sec-aside" style={{ color: 'var(--ink3)' }}>Blog</Link>
+              <Link href="/news" className="sec-aside" style={{ color: 'var(--ink3)' }}>News</Link>
+              <Link href="/documentaries" className="sec-aside" style={{ color: 'var(--ink3)' }}>Documentaries</Link>
+              <Link href="/newspaper" className="sec-aside" style={{ color: 'var(--ink3)' }}>E-Newspaper</Link>
+              <Link href="/blog" className="sec-aside" style={{ color: 'var(--ink3)' }}>Blog</Link>
             </div>
           </div>
 
