@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchOverlay from '@/components/SearchOverlay';
+import RichContentRenderer from '@/components/RichContentRenderer';
 
 interface BlogPost {
   _id: string;
@@ -157,14 +158,7 @@ export default function BlogPostPage() {
           </div>
 
           {/* Article body */}
-          <div
-            className="lora rich-content"
-            dangerouslySetInnerHTML={{ 
-              __html: (post.content || '').includes('<') && (post.content || '').includes('>')
-                ? post.content
-                : (post.content || '').replace(/\n/g, '<br/>')
-            }}
-          />
+          <RichContentRenderer content={post.content} />
 
           {/* Back link */}
           <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--ink)', opacity: 0.5 }}>

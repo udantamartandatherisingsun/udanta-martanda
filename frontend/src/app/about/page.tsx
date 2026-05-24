@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchOverlay from '@/components/SearchOverlay';
+import RichContentRenderer from '@/components/RichContentRenderer';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -72,10 +73,10 @@ export default function AboutPage() {
               <h2 className="serif" style={{ fontSize: '3.5rem', marginBottom: '2rem', lineHeight: 1.1 }}>
                 {pageData.title}
               </h2>
-              <div 
-                className="dynamic-content lora" 
+              <RichContentRenderer 
+                content={pageData.content}
+                className="dynamic-content" 
                 style={{ fontSize: '1.25rem', lineHeight: 1.8 }}
-                dangerouslySetInnerHTML={{ __html: pageData.content }}
               />
             </>
           ) : (

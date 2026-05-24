@@ -42,7 +42,7 @@ export const getNews = async (req, res) => {
 // @route   POST /api/news
 // @access  Private (for now public for testing)
 export const createNews = async (req, res) => {
-  const { title, excerpt, content, category, imageUrl } = req.body;
+  const { title, excerpt, content, category, imageUrl, videoUrl } = req.body;
 
   try {
     const news = await News.create({
@@ -50,7 +50,8 @@ export const createNews = async (req, res) => {
       excerpt,
       content,
       category,
-      imageUrl
+      imageUrl,
+      videoUrl
     });
     res.status(201).json(news);
   } catch (error) {

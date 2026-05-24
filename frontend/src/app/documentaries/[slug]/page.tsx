@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchOverlay from '@/components/SearchOverlay';
+import RichContentRenderer from '@/components/RichContentRenderer';
 
 interface DocArticle {
   _id: string;
@@ -15,8 +16,31 @@ interface DocArticle {
   content: string;
   category: string;
   imageUrl?: string;
+  videoUrl?: string;
   createdAt: string;
   author?: string;
+}
+
+function getYoutubeEmbedUrl(url: string): string | null {
+  if (!url) return null;
+  
+  if (url.includes('/embed/')) {
+    return url;
+  }
+  
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  
+  if (match && match[2].length === 11) {
+    const videoId = match[2];
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  }
+  
+  if (url.startsWith('http')) {
+    return url;
+  }
+  
+  return null;
 }
 
 export default function DocumentaryDetailPage() {
@@ -26,6 +50,7 @@ export default function DocumentaryDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (!params?.slug) return;
@@ -135,43 +160,112 @@ export default function DocumentaryDetailPage() {
             {doc.excerpt}
           </p>
 
-          {/* Hero image with play overlay style */}
-          {doc.imageUrl && (
-            <div style={{ position: 'relative', width: '100%', height: '480px', marginBottom: '3rem', overflow: 'hidden' }}>
+          {/* Video Player or Hero Image */}
+          {doc.videoUrl && isPlaying ? (
+            <div style={{ position: 'relative', width: '100%', height: '480px', marginBottom: '3rem', overflow: 'hidden', background: '#000', borderRadius: '4px', border: '1px solid var(--border3)' }}>
+              <iframe
+                src={getYoutubeEmbedUrl(doc.videoUrl) || ''}
+                title={doc.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{ width: '100%', height: '100%' }}
+              />
+            </div>
+          ) : doc.imageUrl ? (
+            <div 
+              onClick={() => doc.videoUrl && setIsPlaying(true)}
+              style={{ 
+                position: 'relative', 
+                width: '100%', 
+                height: '480px', 
+                marginBottom: '3rem', 
+                overflow: 'hidden',
+                cursor: doc.videoUrl ? 'pointer' : 'default',
+                borderRadius: '4px',
+                border: '1px solid var(--border3)'
+              }}
+            >
               <img
                 src={doc.imageUrl}
                 alt={doc.title}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
               <div className="fig-texture" />
-              <div className="play" style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '80px',
-                height: '80px',
-                background: 'rgba(0,0,0,0.4)',
-                border: '2px solid var(--border)',
-                borderRadius: '50%',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backdropFilter: 'blur(4px)',
-                transition: 'all 0.3s ease',
-              }}>
-                <div style={{
-                  width: 0,
-                  height: 0,
-                  borderTop: '12px solid transparent',
-                  borderBottom: '12px solid transparent',
-                  borderLeft: '20px solid var(--ink)',
-                  marginLeft: '6px'
-                }} />
-              </div>
+              {doc.videoUrl ? (
+                <motion.div 
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="play" 
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '80px',
+                    height: '80px',
+                    background: 'rgba(0,0,0,0.5)',
+                    border: '2px solid var(--gold)',
+                    borderRadius: '50%',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backdropFilter: 'blur(6px)',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 0 24px rgba(212,175,55,0.35)'
+                  }}
+                >
+                  <div style={{
+                    width: 0,
+                    height: 0,
+                    borderTop: '12px solid transparent',
+                    borderBottom: '12px solid transparent',
+                    borderLeft: '20px solid var(--gold)',
+                    marginLeft: '6px'
+                  }} />
+                </motion.div>
+              ) : (
+                <div className="play" style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '80px',
+                  height: '80px',
+                  background: 'rgba(0,0,0,0.4)',
+                  border: '2px solid var(--border)',
+                  borderRadius: '50%',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backdropFilter: 'blur(4px)',
+                  transition: 'all 0.3s ease',
+                }}>
+                  <div style={{
+                    width: 0,
+                    height: 0,
+                    borderTop: '12px solid transparent',
+                    borderBottom: '12px solid transparent',
+                    borderLeft: '20px solid var(--ink)',
+                    marginLeft: '6px'
+                  }} />
+                </div>
+              )}
             </div>
-          )}
+          ) : doc.videoUrl ? (
+            <div style={{ position: 'relative', width: '100%', height: '480px', marginBottom: '3rem', overflow: 'hidden', background: '#000', borderRadius: '4px', border: '1px solid var(--border3)' }}>
+              <iframe
+                src={getYoutubeEmbedUrl(doc.videoUrl) || ''}
+                title={doc.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{ width: '100%', height: '100%' }}
+              />
+            </div>
+          ) : null}
 
           {/* Divider */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem', opacity: 0.4 }}>
@@ -183,11 +277,7 @@ export default function DocumentaryDetailPage() {
           </div>
 
           {/* Article body */}
-          <div
-            className="lora"
-            style={{ fontSize: '1.15rem', lineHeight: '1.85', letterSpacing: '0.01em' }}
-            dangerouslySetInnerHTML={{ __html: doc.content.replace(/\n/g, '<br/>') }}
-          />
+          <RichContentRenderer content={doc.content} />
 
           {/* Back link */}
           <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--ink)', opacity: 0.5 }}>

@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchOverlay from '@/components/SearchOverlay';
+import RichContentRenderer from '@/components/RichContentRenderer';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
@@ -71,10 +72,9 @@ export default function ContactPage() {
             {pageData ? (
               <>
                 <h2 className="serif" style={{ fontSize: '3rem', marginBottom: '2rem' }}>{pageData.title}</h2>
-                <div 
-                  className="lora" 
+                <RichContentRenderer 
+                  content={pageData.content}
                   style={{ marginBottom: '3rem', opacity: 0.7 }}
-                  dangerouslySetInnerHTML={{ __html: pageData.content }}
                 />
               </>
             ) : (

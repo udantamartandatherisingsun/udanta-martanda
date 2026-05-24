@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchOverlay from '@/components/SearchOverlay';
+import RichTextEditor from '@/components/RichTextEditor';
 import { 
   Plus, Edit2, Trash2, X, Save, 
   FileText, Video, BookOpen, Layout, Phone, LogOut, Newspaper as NewspaperIcon,
@@ -24,6 +25,7 @@ interface ContentItem {
   content?: string;
   category?: string;
   imageUrl?: string;
+  videoUrl?: string;
   // Newspaper specific
   issueDate?: string;
   pdfUrl?: string;
@@ -45,6 +47,7 @@ export default function AdminPage() {
     content: '',
     category: '',
     imageUrl: '',
+    videoUrl: '',
     slug: '',
     issueDate: new Date().toISOString().split('T')[0],
     pdfUrl: '',
@@ -161,7 +164,7 @@ export default function AdminPage() {
       if (res.ok) {
         setIsModalOpen(false);
         setEditingItem(null);
-        setFormData({ title: '', excerpt: '', content: '', category: '', imageUrl: '', slug: '', pdfUrl: '', description: '' });
+        setFormData({ title: '', excerpt: '', content: '', category: '', imageUrl: '', videoUrl: '', slug: '', pdfUrl: '', description: '' });
         fetchItems();
       }
     } catch (err) {
@@ -249,7 +252,7 @@ export default function AdminPage() {
                 onClick={() => {
                   setEditingItem(null);
                   setFormData({ 
-                    title: '', excerpt: '', content: '', category: '', imageUrl: '', 
+                    title: '', excerpt: '', content: '', category: '', imageUrl: '', videoUrl: '',
                     slug: '', pdfUrl: '', description: '', issueDate: new Date().toISOString().split('T')[0] 
                   });
                   setIsModalOpen(true);
@@ -387,28 +390,47 @@ export default function AdminPage() {
                 {activeSection !== 'newspaper' && (
                   <div className="form-group" style={{ marginBottom: '24px' }}>
                     <label style={{ display: 'block', fontSize: '11px', color: 'var(--ink4)', textTransform: 'uppercase', marginBottom: '8px', fontFamily: 'var(--mono)' }}>
-                      {activeSection === 'pages' ? 'Content (HTML supported)' : 'Excerpt / Summary'}
+                      {activeSection === 'pages' ? 'Content (Rich Text)' : 'Excerpt / Summary'}
                     </label>
-                    <textarea 
-                      rows={activeSection === 'pages' ? 10 : 2}
-                      required
-                      value={activeSection === 'pages' ? formData.content : formData.excerpt}
-                      onChange={(e) => setFormData(activeSection === 'pages' ? { ...formData, content: e.target.value } : { ...formData, excerpt: e.target.value })}
-                      style={{ width: '100%', background: 'var(--bg)', border: '1px solid var(--border3)', padding: '12px', color: 'var(--ink)', outline: 'none', resize: 'vertical', borderRadius: '4px' }} 
-                    ></textarea>
+                    {activeSection === 'pages' ? (
+                      <RichTextEditor
+                        value={formData.content || ''}
+                        onChange={(val) => setFormData({ ...formData, content: val })}
+                        placeholder="Write beautiful pages content..."
+                      />
+                    ) : (
+                      <textarea 
+                        rows={2}
+                        required
+                        value={formData.excerpt || ''}
+                        onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
+                        style={{ width: '100%', background: 'var(--bg)', border: '1px solid var(--border3)', padding: '12px', color: 'var(--ink)', outline: 'none', resize: 'vertical', borderRadius: '4px' }} 
+                      ></textarea>
+                    )}
                   </div>
                 )}
 
                 {activeSection !== 'pages' && activeSection !== 'newspaper' && (
                   <div className="form-group" style={{ marginBottom: '24px' }}>
-                    <label style={{ display: 'block', fontSize: '11px', color: 'var(--ink4)', textTransform: 'uppercase', marginBottom: '8px', fontFamily: 'var(--mono)' }}>Full Content</label>
-                    <textarea 
-                      rows={6}
-                      required
-                      value={formData.content}
-                      onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                      style={{ width: '100%', background: 'var(--bg)', border: '1px solid var(--border3)', padding: '12px', color: 'var(--ink)', outline: 'none', resize: 'vertical', borderRadius: '4px' }} 
-                    ></textarea>
+                    <label style={{ display: 'block', fontSize: '11px', color: 'var(--ink4)', textTransform: 'uppercase', marginBottom: '8px', fontFamily: 'var(--mono)' }}>Full Content (Rich Text)</label>
+                    <RichTextEditor
+                      value={formData.content || ''}
+                      onChange={(val) => setFormData({ ...formData, content: val })}
+                      placeholder="Write beautiful article content..."
+                    />
+                  </div>
+                )}
+
+                {activeSection === 'docs' && (
+                  <div className="form-group" style={{ marginBottom: '24px' }}>
+                    <label style={{ display: 'block', fontSize: '11px', color: 'var(--ink4)', textTransform: 'uppercase', marginBottom: '8px', fontFamily: 'var(--mono)' }}>Video URL (YouTube Embed or Link)</label>
+                    <input 
+                      type="text" 
+                      value={formData.videoUrl || ''}
+                      onChange={(e) => setFormData({ ...formData, videoUrl: e.target.value })}
+                      placeholder="e.g., https://www.youtube.com/embed/... or https://youtu.be/..."
+                      style={{ width: '100%', background: 'var(--bg)', border: '1px solid var(--border3)', padding: '12px', color: 'var(--ink)', outline: 'none', borderRadius: '4px' }} 
+                    />
                   </div>
                 )}
 

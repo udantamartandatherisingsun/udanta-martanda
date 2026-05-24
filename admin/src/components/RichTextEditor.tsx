@@ -13,7 +13,10 @@ import {
   Code as CodeIcon, 
   Eye as EyeIcon,
   X,
-  Plus
+  Plus,
+  Heading2,
+  Heading3,
+  Minus
 } from 'lucide-react';
 
 interface RichTextEditorProps {
@@ -48,6 +51,8 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write s
     strikethrough: false,
     orderedList: false,
     unorderedList: false,
+    h2: false,
+    h3: false,
   });
 
   useEffect(() => {
@@ -122,6 +127,29 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write s
   // Check which formatting styles are active at the current cursor position
   const checkActiveStates = () => {
     if (typeof document === 'undefined') return;
+    
+    let isH2 = false;
+    let isH3 = false;
+    
+    try {
+      const blockValue = document.queryCommandValue('formatBlock');
+      isH2 = blockValue === 'h2' || blockValue === '<h2>';
+      isH3 = blockValue === 'h3' || blockValue === '<h3>';
+    } catch (e) {
+      // Fallback node inspection
+      if (typeof window !== 'undefined') {
+        const selection = window.getSelection();
+        if (selection && selection.rangeCount > 0) {
+          let node = selection.getRangeAt(0).startContainer;
+          while (node && node !== editorRef.current) {
+            if (node.nodeName === 'H2') isH2 = true;
+            if (node.nodeName === 'H3') isH3 = true;
+            node = node.parentNode as Node;
+          }
+        }
+      }
+    }
+
     setActiveStates({
       bold: document.queryCommandState('bold'),
       italic: document.queryCommandState('italic'),
@@ -129,7 +157,27 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write s
       strikethrough: document.queryCommandState('strikeThrough'),
       orderedList: document.queryCommandState('insertOrderedList'),
       unorderedList: document.queryCommandState('insertUnorderedList'),
+      h2: isH2,
+      h3: isH3,
     });
+  };
+
+  // Toggle heading block format
+  const toggleHeading = (headingTag: 'h2' | 'h3') => {
+    if (isCodeView) return;
+    const isCurrentlyActive = headingTag === 'h2' ? activeStates.h2 : activeStates.h3;
+    if (isCurrentlyActive) {
+      execCommand('formatBlock', '<p>');
+    } else {
+      execCommand('formatBlock', `<${headingTag}>`);
+    }
+  };
+
+  // Insert beautiful custom horizontal rule matching premium HSL branding
+  const insertHorizontalRule = () => {
+    if (isCodeView) return;
+    const hrHtml = '<hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(212, 175, 55, 0), rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0)); margin: 32px 0;" />&nbsp;';
+    execCommand('insertHTML', hrHtml);
   };
 
   // Insert link
@@ -320,6 +368,52 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write s
 
         <button
           type="button"
+          onClick={() => toggleHeading('h2')}
+          disabled={isCodeView}
+          style={{
+            background: activeStates.h2 ? 'var(--bg3)' : 'none',
+            border: 'none',
+            color: activeStates.h2 ? 'var(--gold)' : 'var(--ink2)',
+            padding: '6px',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            opacity: isCodeView ? 0.3 : 1,
+            transition: 'all 0.2s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Subheading (H2)"
+        >
+          <Heading2 size={16} />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => toggleHeading('h3')}
+          disabled={isCodeView}
+          style={{
+            background: activeStates.h3 ? 'var(--bg3)' : 'none',
+            border: 'none',
+            color: activeStates.h3 ? 'var(--gold)' : 'var(--ink2)',
+            padding: '6px',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            opacity: isCodeView ? 0.3 : 1,
+            transition: 'all 0.2s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Minor Heading (H3)"
+        >
+          <Heading3 size={16} />
+        </button>
+
+        <div style={{ width: '1px', height: '18px', background: 'var(--border3)', margin: '0 6px' }} />
+
+        <button
+          type="button"
           onClick={() => execCommand('insertOrderedList')}
           disabled={isCodeView}
           style={{
@@ -360,6 +454,28 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write s
           title="Unordered List (Bullet Points)"
         >
           <ListIcon size={16} />
+        </button>
+
+        <button
+          type="button"
+          onClick={insertHorizontalRule}
+          disabled={isCodeView}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: 'var(--ink2)',
+            padding: '6px',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            opacity: isCodeView ? 0.3 : 1,
+            transition: 'all 0.2s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Insert Separator (HR)"
+        >
+          <Minus size={16} />
         </button>
 
         <div style={{ width: '1px', height: '18px', background: 'var(--border3)', margin: '0 6px' }} />
@@ -677,14 +793,14 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write s
             overflowY: 'auto',
             border: 'none'
           }}
-          placeholder={placeholder}
+          data-placeholder={placeholder}
         />
       )}
 
       {/* Inline styling to support placeholder, custom focus styles, and formatting */}
       <style jsx global>{`
         [contenteditable]:empty:before {
-          content: attr(placeholder);
+          content: attr(data-placeholder);
           color: var(--ink4);
           cursor: text;
         }

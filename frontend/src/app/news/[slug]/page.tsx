@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchOverlay from '@/components/SearchOverlay';
+import RichContentRenderer from '@/components/RichContentRenderer';
 
 interface NewsArticle {
   _id: string;
@@ -157,14 +158,7 @@ export default function ArticlePage() {
           </div>
 
           {/* Article body */}
-          <div
-            className="lora rich-content"
-            dangerouslySetInnerHTML={{ 
-              __html: (article.content || '').includes('<') && (article.content || '').includes('>')
-                ? article.content
-                : (article.content || '').replace(/\n/g, '<br/>')
-            }}
-          />
+          <RichContentRenderer content={article.content} />
 
           {/* Back link */}
           <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--ink)', opacity: 0.5 }}>
