@@ -1,0 +1,225 @@
+{
+  "encrypted": false,
+  "version": "1.0",
+  "exportedAt": "2026-05-24T18:10:08.678Z",
+  "data": {
+    "news": [
+      {
+        "_id": "6a1401a2ab09f4bf511ca401",
+        "title": "Ancient Indian Architecture Finds New Global Attention",
+        "excerpt": "Historians, architects, and travelers around the world are turning their attention toward India’s ancient architectural marvels and forgotten heritage sites.",
+        "content": "<p>India’s ancient architecture is gaining renewed global recognition as researchers and travelers rediscover temples, forts, stepwells, and historical cities that reflect centuries of artistic brilliance and engineering mastery.</p><h2>Preserving Timeless Craftsmanship</h2><p>Conservationists believe these monuments represent more than tourism opportunities. They are records of scientific knowledge, spiritual symbolism, and regional identity passed through generations.</p><hr /><h3>Digital Preservation Efforts</h3><p>Modern technologies such as 3D scanning, drone mapping, and virtual heritage tours are helping preserve fragile structures while introducing them to younger audiences online.</p>",
+        "category": "News",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-01T08:20:00.000Z",
+        "__v": 0,
+        "slug": "ancient-indian-architecture-finds-new-global-attention",
+        "views": 14
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca402",
+        "title": "Young Entrepreneurs Are Transforming Rural India",
+        "excerpt": "Small-town founders are building startups focused on agriculture, logistics, education, and digital services across rural India.",
+        "content": "<p>India’s startup ecosystem is rapidly expanding beyond metropolitan cities. Young entrepreneurs from rural regions are building practical solutions tailored to local communities.</p><h2>Innovation Beyond Cities</h2><p>Affordable internet access and digital payments have enabled businesses in farming, healthcare, and education to scale faster than ever before.</p><hr /><h3>Rise of Grassroots Innovation</h3><p>Experts say this shift could redefine India’s economic future by creating opportunities in areas traditionally overlooked by investors.</p>",
+        "category": "News",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-02T10:15:00.000Z",
+        "__v": 0,
+        "slug": "young-entrepreneurs-transforming-rural-india",
+        "views": 21
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca403",
+        "title": "India’s Forgotten Rivers Return to Public Discussion",
+        "excerpt": "Environmental activists and local communities are working together to restore rivers once central to India’s ecological balance.",
+        "content": "<p>Across several states, river restoration projects are bringing attention back to water bodies damaged by pollution and urbanization.</p><h2>Communities Leading Change</h2><p>Villagers, students, and environmental groups have started awareness campaigns focused on sustainable water management and conservation.</p><hr /><h3>Ecological Importance</h3><p>Experts warn that restoring rivers is essential not only for the environment but also for agriculture, health, and long-term economic stability.</p>",
+        "category": "Environment",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-03T09:00:00.000Z",
+        "__v": 0,
+        "slug": "indias-forgotten-rivers-return-to-public-discussion",
+        "views": 18
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca404",
+        "title": "Regional Languages Thrive Through Digital Media",
+        "excerpt": "Content creators are using podcasts, short videos, and online communities to revive regional Indian languages.",
+        "content": "<p>Digital platforms are becoming powerful tools for preserving India’s linguistic diversity as creators publish content in regional languages.</p><h2>A New Cultural Movement</h2><p>Young audiences are increasingly engaging with local literature, poetry, and storytelling online.</p><hr /><h3>Technology Meets Tradition</h3><p>Experts believe digital accessibility is helping endangered languages survive in the modern era.</p>",
+        "category": "Culture",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-04T11:45:00.000Z",
+        "__v": 0,
+        "slug": "regional-languages-thrive-through-digital-media",
+        "views": 30
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca405",
+        "title": "Traditional Indian Crafts Gain International Demand",
+        "excerpt": "Handmade Indian textiles, pottery, and folk art are finding new global markets through online platforms.",
+        "content": "<p>Indian artisans are experiencing renewed recognition as global consumers show growing interest in handmade and sustainable products.</p><h2>Economic Opportunities for Artisans</h2><p>Digital marketplaces are helping local craftsmen reach customers far beyond traditional markets.</p><hr /><h3>Protecting Heritage</h3><p>Cultural organizations are encouraging younger generations to continue traditional crafts that once faced decline.</p>",
+        "category": "Business",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-05T13:10:00.000Z",
+        "__v": 0,
+        "slug": "traditional-indian-crafts-gain-international-demand",
+        "views": 12
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca406",
+        "title": "The Return of Heritage Walks in Historic Cities",
+        "excerpt": "Cities across India are organizing heritage walks to reconnect citizens with local history and architecture.",
+        "content": "<p>Heritage walks are becoming increasingly popular among students, photographers, and travelers interested in local history.</p><h2>Learning Through Exploration</h2><p>Organizers believe these events help communities understand the cultural importance of historical neighborhoods.</p><hr /><h3>Tourism and Awareness</h3><p>Experts say heritage tourism can strengthen local economies while encouraging preservation efforts.</p>",
+        "category": "Travel",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-06T14:20:00.000Z",
+        "__v": 0,
+        "slug": "return-of-heritage-walks-in-historic-cities",
+        "views": 16
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca407",
+        "title": "India’s Independent Journalists Embrace Digital Platforms",
+        "excerpt": "Independent journalists are increasingly using digital platforms to publish long-form reporting and investigative stories.",
+        "content": "<p>The rise of independent journalism in India reflects growing public demand for thoughtful reporting beyond fast-paced headlines.</p><h2>Changing Media Landscape</h2><p>Digital newsletters, podcasts, and video essays are becoming alternative spaces for serious journalism.</p><hr /><h3>Challenges Ahead</h3><p>Media experts emphasize the need for sustainable funding models to support independent reporting initiatives.</p>",
+        "category": "Media",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-07T15:40:00.000Z",
+        "__v": 0,
+        "slug": "independent-journalists-embrace-digital-platforms",
+        "views": 11
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca408",
+        "title": "Ancient Food Traditions Make a Modern Comeback",
+        "excerpt": "Traditional Indian grains, recipes, and cooking methods are returning to popularity among health-conscious consumers.",
+        "content": "<p>Millets, fermented foods, and regional recipes are experiencing renewed attention as people seek healthier and sustainable lifestyles.</p><h2>Rediscovering Traditional Diets</h2><p>Nutritionists believe ancient food practices can offer practical solutions for modern health challenges.</p><hr /><h3>Cultural Importance of Food</h3><p>Historians argue that food traditions are deeply connected to identity, memory, and local ecosystems.</p>",
+        "category": "Lifestyle",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-08T12:30:00.000Z",
+        "__v": 0,
+        "slug": "ancient-food-traditions-make-modern-comeback",
+        "views": 27
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca409",
+        "title": "Indian Cinema Explores Historical Storytelling Again",
+        "excerpt": "Filmmakers are increasingly turning toward history, folklore, and mythology for cinematic inspiration.",
+        "content": "<p>Historical dramas and culturally rooted storytelling are returning to Indian cinema with strong audience support.</p><h2>Blending Art and History</h2><p>Directors are using modern visual effects while drawing inspiration from classical Indian literature and folklore.</p><hr /><h3>Audience Demand for Meaningful Stories</h3><p>Industry analysts believe viewers are seeking narratives with emotional and historical depth.</p>",
+        "category": "Entertainment",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-09T16:00:00.000Z",
+        "__v": 0,
+        "slug": "indian-cinema-explores-historical-storytelling-again",
+        "views": 24
+      },
+      {
+        "_id": "6a1401a2ab09f4bf511ca410",
+        "title": "Students Lead a New Wave of Historical Research",
+        "excerpt": "University students across India are documenting forgotten regional histories and oral traditions.",
+        "content": "<p>A growing number of students are participating in local research projects focused on oral histories, archives, and regional culture.</p><h2>Academic Curiosity Meets Community Work</h2><p>Researchers believe grassroots historical documentation is essential for preserving diverse narratives.</p><hr /><h3>The Future of Public History</h3><p>Educational institutions are encouraging collaborative projects between students, historians, and local communities.</p>",
+        "category": "Education",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-06-10T10:50:00.000Z",
+        "__v": 0,
+        "slug": "students-lead-new-wave-of-historical-research",
+        "views": 19
+      },
+      {
+        "_id": "6a12f30fab09f4bf511ca306",
+        "title": "India’s Cultural Legacy Inspires Youth Across the Nation",
+        "excerpt": "A growing wave of cultural awareness among young Indians is reviving interest in history, traditions, and heritage preservation through digital platforms, education, and community initiatives.",
+        "content": "<p>India’s rich cultural heritage is witnessing a renewed appreciation among the younger generation, as students, creators, and community organizations across the country work to preserve and celebrate traditional values, art forms, and historical narratives.</p>\n\n<h2>Modern Resurgence of Traditions</h2>\n<p>From ancient temples and classical music to regional languages and folk traditions, young citizens are increasingly using modern technology and social media to reconnect with the roots of Indian civilization. Educational institutions and cultural organizations have also started hosting heritage walks, traditional art workshops, and awareness campaigns to encourage participation from students and local communities.</p>\n\n<hr />\n\n<h3>Digital Education &amp; Community Initiatives</h3>\n<p>Experts believe that this cultural revival is helping strengthen national identity while creating opportunities for tourism, local craftsmanship, and historical research. Digital creators are playing a major role by producing documentaries, podcasts, and short videos that present India’s forgotten stories in engaging formats for modern audiences.</p>",
+        "category": "News",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-05-24T12:46:07.229Z",
+        "__v": 0,
+        "slug": "indias-cultural-legacy-inspires-youth-across-the-nation",
+        "views": 5
+      },
+      {
+        "_id": "6a131bb2c3205c61639c064e",
+        "title": "200 सालों का सफ़र: जब बंगाल ने दिया पहला हिंदी अख़बार, और आज बंगाल में गूंजती है हिंदी",
+        "slug": "bengal-hindi-200-years",
+        "excerpt": "30 मई 1826 को कलकत्ता की सड़कों से शुरू हुआ 'उदन्त मार्तण्ड' का सफर, आज दो सदी बाद बंगाल की सांस्कृतिक रगों में हिंदी बनकर दौड़ रहा है।",
+        "content": "<p style=\"margin-bottom: 1.5rem;\">\n  इतिहास के पन्ने जब भी पलटे जाते हैं, तो कुछ कहानियाँ समय के साथ और भी गहरी और प्रासंगिक हो जाती हैं। आज से ठीक 200 साल पहले, 30 मई 1826 को कलकत्ता (अब कोलकाता) के बड़ा बाज़ार इलाके से एक ऐसी क्रांति की शुरुआत हुई थी, जिसने पूरे भारत की भाषाई दिशा तय कर दी। यहीं से प्रकाशित हुआ था भारत का पहला हिंदी समाचार पत्र— <strong>'उदन्त मार्तण्ड' (Udant Martand)</strong>।\n</p>\n<p style=\"margin-bottom: 1.5rem;\">\n  पंडित जुगल किशोर शुक्ल जी के अदम्य साहस और दूरदृष्टि का ही परिणाम था कि गैर-हिंदी भाषी राज्य बंगाल की धरती से हिंदी पत्रकारिता का सूर्योदय हुआ। उस दौर में, जब संसाधन सीमित थे और चुनौतियाँ अपार, 'उदन्त मार्तण्ड' ने एक ऐसा बीज बोया, जिसकी छांव आज पूरा देश महसूस कर रहा है।\n</p>\n\n<h2 class=\"serif\" style=\"font-size: 2rem; margin-top: 3rem; margin-bottom: 1.5rem; font-family: var(--hindi), serif;\">\n  200 साल बाद: जब बंगाल हो गया हिंदी मय\n</h2>\n\n<p style=\"margin-bottom: 1.5rem;\">\n  आज, 2026 में, जब हम इस ऐतिहासिक अख़बार की 200वीं वर्षगांठ मना रहे हैं, तो एक सुखद बदलाव देखने को मिलता है। 200 साल पहले जिस बंगाल ने हिंदी पत्रकारिता को अपनी ज़मीन दी थी, आज वही बंगाल हिंदी को अपने दिल में बसा चुका है।\n</p>\n\n<p style=\"margin-bottom: 1.5rem;\">\n  कोलकाता की सड़कों पर आज बांग्ला की मिठास के साथ-साथ हिंदी की गूंज भी आम हो गई है। व्यापार, शिक्षा, कला और रोज़मर्रा की ज़िंदगी में हिंदी और बांग्ला का यह अनूठा संगम देखने को मिलता है। हावड़ा ब्रिज से लेकर कॉलेज स्ट्रीट तक, आपको ऐसे हज़ारों लोग मिल जाएंगे जिनकी मातृभाषा भले ही बांग्ला हो, लेकिन वे हिंदी को उतने ही अपनेपन और अधिकार के साथ बोलते हैं।\n</p>\n\n<p style=\"margin-bottom: 1.5rem;\">\n  आज बंगाल के सिनेमा, साहित्य और युवा संस्कृति में हिंदी का प्रभाव साफ झलकता है। यह सिर्फ प्रवासन (migration) का नतीजा नहीं है, बल्कि दो महान संस्कृतियों के बीच एक सेतु के निर्माण का परिणाम है।\n</p>\n\n<blockquote style=\"font-size: 1.5rem; font-style: italic; border-left: 4px solid var(--ink); padding-left: 2rem; margin: 3rem 0; opacity: 0.9;\">\n  \"भाषाएँ कभी सीमाओं में नहीं बंधतीं; वे दिलों को जोड़ती हैं और सदियों तक जीवित रहती हैं।\"\n</blockquote>\n\n<h2 class=\"serif\" style=\"font-size: 2rem; margin-top: 3rem; margin-bottom: 1.5rem; font-family: var(--hindi), serif;\">\n  विरासत को सलाम\n</h2>\n\n<p style=\"margin-bottom: 1.5rem;\">\n  'उदन्त मार्तण्ड' का शाब्दिक अर्थ है \"उगता हुआ सूर्य\"। 200 साल पहले कलकत्ता से उगे उस सूर्य ने न सिर्फ हिंदी भाषा को एक नई पहचान दी, बल्कि भारत की भाषाई एकता का एक ऐसा उदाहरण पेश किया जो आज भी कायम है।\n</p>\n\n<p style=\"margin-bottom: 1.5rem;\">\n  आज जब हम पीछे मुड़कर देखते हैं, तो गर्व होता है कि 200 साल पहले एक हिंदी अख़बार बंगाल आया था, और आज 200 साल बाद, बंगाल खुद ही कहीं न कहीं हिंदी के रंग में रंग गया है। \n</p>",
+        "category": "Heritage · विरासत",
+        "author": "Udant Martand Staff",
+        "imageUrl": "/assets/bengal_hindi_200_years.png",
+        "createdAt": "2026-05-30T00:00:00.000Z",
+        "__v": 0,
+        "views": 5
+      },
+      {
+        "_id": "6a131e649bdcedfb091d6d38",
+        "title": "The Digital Renaissance of Indian Storytelling",
+        "excerpt": "Modern creators are blending ancient Indian narratives with technology, giving traditional storytelling a fresh voice in the digital age.",
+        "content": "India has always been a land of stories. From the epics of the Mahabharata and Ramayana to regional folk tales passed down through generations, storytelling has shaped the cultural identity of the nation for centuries. Today, a new generation of creators is bringing those timeless narratives into the digital era.\n\nWriters, filmmakers, podcasters, and independent artists are using platforms like YouTube, Instagram, and streaming services to retell historical events, mythological stories, and forgotten legends in formats designed for modern audiences. Short-form content, cinematic visuals, and AI-assisted creativity are helping traditional stories reach millions of young viewers across the world.\n\nThis shift is more than just content creation. It reflects a larger cultural movement where people are reconnecting with their roots while embracing innovation. Audiences are increasingly interested in authentic stories that carry emotional depth, historical significance, and philosophical meaning — something fast-paced modern entertainment often lacks.\n\nDigital storytelling has also opened opportunities for regional creators. Languages once limited to local audiences are now finding global recognition through subtitles, dubbing, and social media reach. Independent creators from small towns are building communities around culture, history, spirituality, and literature without relying on traditional media networks.\n\nExperts believe this trend could reshape India’s creative industry in the coming years. As technology evolves, storytelling may become more immersive through virtual reality, AI-generated experiences, and interactive platforms. But at its core, the mission remains unchanged: preserving wisdom, identity, and human connection through stories.\n\nIn an age dominated by algorithms and endless scrolling, meaningful storytelling still stands tall — proving that old roots can grow in new soil.",
+        "category": "Blog",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-05-24T15:51:00.857Z",
+        "slug": "the-digital-renaissance-of-indian-storytelling",
+        "__v": 0,
+        "views": 2
+      },
+      {
+        "views": 0,
+        "_id": "6a1328e3d3fb6056a1f5681a",
+        "title": "Cultural Revival in India: Reclaiming Identity in a Modern Age",
+        "excerpt": "India’s cultural revival is not a return to the past; it is a reawakening. Across music, language, crafts, festivals, food, and spirituality, a new generation is rediscovering traditions once fading under modern pressure. This piece explores how heritage is being preserved, reinterpreted, and carried forward in a changing nation.",
+        "content": "India has always been a civilization of continuity. Dynasties changed, borders shifted, technologies evolved, yet the cultural thread kept running. In recent years, however, that thread has begun to shine again with renewed strength. What many describe as a “cultural revival” is not a single movement, but a wide and layered return to roots across the country.\n\nThis revival can be seen first in language. Regional languages, once pushed aside by convenience and urban prestige, are finding new life through digital media, literature, podcasts, and education. Young creators are writing, speaking, and performing in their mother tongues with pride. This is more than nostalgia. Language carries memory, and when people reclaim their language, they reclaim a way of seeing the world.\n\nIt is also visible in art and craft. Handwoven textiles, block printing, pottery, folk painting, and traditional jewelry are no longer seen only as relics of the past. Designers, entrepreneurs, and conscious buyers are giving these forms new relevance. A sari woven in a small village or a wooden toy carved by hand is no longer just an object; it is a story of skill, patience, and inheritance. In this way, heritage becomes economically viable again, which is essential if it is to survive.\n\nFood has become another powerful expression of revival. Across India, there is growing appreciation for regional cuisines, ancient grains, and traditional cooking methods. Millets, once considered basic or outdated, are returning to the center of discussion because of their nutritional value and cultural significance. Old recipes are being documented and revived by families, chefs, and historians. In a country where food is deeply tied to memory and identity, this matters.\n\nFestivals too have taken on renewed meaning. Many people are returning to local celebrations, temple traditions, village fairs, and seasonal rituals that had been diluted by rapid urbanization. These events are not simply religious or festive occasions; they are social glue. They reconnect communities, preserve oral traditions, and give younger generations a chance to experience heritage firsthand rather than as a museum exhibit.\n\nSpiritual and philosophical traditions are also seeing fresh interest. Meditation, yoga, Sanskrit study, Vedanta, Ayurveda, and other classical systems are being revisited not as exotic trends, but as living traditions with practical relevance. Some of this interest is global, but much of it is domestic, driven by Indians who want to understand the depth of their own civilization. That shift is important. A culture survives not when others admire it, but when its own people study it seriously.\n\nStill, revival is not without risk. There is always a temptation to turn culture into performance, reducing living traditions into branding or political slogans. Real revival requires more than pride. It demands scholarship, humility, protection of artisans, investment in education, and respect for diversity. India’s strength has never come from one uniform identity. It has come from many traditions coexisting, adapting, and arguing with one another for centuries.\n\nThe future of Indian culture will not be built by museums alone. It will be built in classrooms, on screens, in workshops, in kitchens, in villages, and in the choices of young people who decide that heritage is not outdated. It is useful. It is beautiful. It is alive.\n\nIn the end, cultural revival is not about going backward. It is about remembering enough to move forward with confidence.",
+        "category": "Documentary",
+        "author": "Editorial Team",
+        "imageUrl": "https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=1200&auto=format&fit=crop",
+        "createdAt": "2026-05-24T16:35:47.594Z",
+        "slug": "cultural-revival-in-india-reclaiming-identity-in-a-modern-age",
+        "__v": 0
+      }
+    ],
+    "newspapers": [
+      {
+        "_id": "6a132d84d3fb6056a1f5681b",
+        "title": "Voices of a Changing India",
+        "issueDate": "2026-05-24T00:00:00.000Z",
+        "pdfUrl": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "imageUrl": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1200&auto=format&fit=crop",
+        "description": "This edition explores the cultural, technological, and social transformation shaping modern India. From the revival of ancient traditions in Bundelkhand to the rapid rise of digital entrepreneurship among youth, the newspaper highlights stories that bridge heritage and innovation. Featured articles examine India’s evolving education system, the preservation of regional languages, startup ecosystems in Tier-2 cities, and the growing influence of independent creators in shaping public discourse. Through thoughtful reporting and grounded analysis, this issue captures a nation balancing its timeless roots with an ambitious future.",
+        "createdAt": "2026-05-24T16:55:32.576Z",
+        "__v": 0
+      },
+      {
+        "_id": "6a132ddad3fb6056a1f5681c",
+        "title": "The Rise of Digital Bharat",
+        "issueDate": "2026-05-24T00:00:00.000Z",
+        "pdfUrl": "https://www.africau.edu/images/default/sample.pdf",
+        "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+        "description": "India’s digital revolution is no longer limited to metro cities. Across small towns and rural regions, young innovators are building startups, creators are launching independent media platforms, and local businesses are embracing technology faster than ever before. This edition explores how affordable internet access, AI tools, digital payments, and online education are transforming everyday life. Special coverage includes emerging tech entrepreneurs from Tier-2 cities, the future of remote work in India, cybersecurity awareness among youth, and how traditional businesses are adapting to the online economy. It is the story of a nation coding its future while carrying the weight of its heritage with pride.",
+        "createdAt": "2026-05-24T16:56:58.035Z",
+        "__v": 0
+      }
+    ],
+    "pages": [],
+    "users": [
+      {
+        "_id": "6a05fc1c7bb3adca4fd5fc48",
+        "name": "Super Admin",
+        "email": "admin@udantmartand.in",
+        "password": "$2b$10$09Ok5lHhYuRob8uZdAuysebUFrh2QT0GbPy4eCv6O/lDOR1F.eWKK",
+        "role": "admin",
+        "createdAt": "2026-05-14T16:45:16.404Z",
+        "__v": 0
+      }
+    ]
+  }
+}
