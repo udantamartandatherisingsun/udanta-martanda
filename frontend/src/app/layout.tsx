@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Lora, Courier_Prime, Noto_Sans_Devanagari } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 const cormorant = Cormorant_Garamond({
