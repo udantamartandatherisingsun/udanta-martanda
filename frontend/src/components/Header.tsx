@@ -30,7 +30,7 @@ export default function Header({ onSearchOpen }: { onSearchOpen: () => void }) {
           {today} · INDORE EDITION
         </div>
         <div className="util-right">
-          <Link href="/#newsletter">Newsletter</Link>
+          {/* <Link href="/newsletter">Newsletter</Link> */}
           <Link href="/newspaper">E-Newspaper</Link>
           <a href={process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:3001"} target="_blank" rel="noopener noreferrer">Admin</a>
         </div>
@@ -42,7 +42,7 @@ export default function Header({ onSearchOpen }: { onSearchOpen: () => void }) {
           <div className="mr1"></div>
           <div className="mr2"></div>
         </div>
-        
+
         <div className="mast-pre">उदन्त मार्तण्ड</div>
         <h1 className="mast-title">
           Udant Martand
@@ -58,15 +58,15 @@ export default function Header({ onSearchOpen }: { onSearchOpen: () => void }) {
 
       <nav className="main-nav">
         {navLinks.map((link) => (
-          <Link 
-            key={link.href} 
-            href={link.href} 
+          <Link
+            key={link.href}
+            href={link.href}
             className={pathname === link.href ? 'active' : ''}
           >
             {link.label}
           </Link>
         ))}
-        
+
         <div className="nav-right">
           <div className="nav-icon" onClick={onSearchOpen}>
             <Search size={14} />
