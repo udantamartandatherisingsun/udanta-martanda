@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Lora, Courier_Prime, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/next";
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -43,6 +43,7 @@ export default function RootLayout({
         cz-shortcut-listen="true"
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
