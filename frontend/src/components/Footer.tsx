@@ -8,23 +8,23 @@ export default function Footer() {
       <div className="wrap" style={{ padding: 0 }}>
         <div className="foot-main">
           <div className="foot-brand">
-            <div className="f-pre" style={{ 
-              fontFamily: 'var(--hindi)', 
-              fontSize: '11px', 
-              letterSpacing: '.3em', 
+            <div className="f-pre" style={{
+              fontFamily: 'var(--hindi)',
+              fontSize: '11px',
+              letterSpacing: '.3em',
               color: 'var(--ink4)',
               marginBottom: '10px'
             }}>उदन्त मार्तण्ड</div>
-            <h2 style={{ 
-              fontFamily: 'var(--serif)', 
-              fontSize: '32px', 
-              fontWeight: 600, 
+            <h2 style={{
+              fontFamily: 'var(--serif)',
+              fontSize: '32px',
+              fontWeight: 600,
               color: 'var(--ink)',
               lineHeight: 1
             }}>Udant Martand</h2>
-            <p style={{ 
-              fontFamily: 'var(--body)', 
-              fontSize: '14px', 
+            <p style={{
+              fontFamily: 'var(--body)',
+              fontSize: '14px',
               color: 'var(--ink3)',
               marginTop: '15px'
             }}>
@@ -32,17 +32,17 @@ export default function Footer() {
               in Print &amp; Digital<br /><br />
               Est. 1826 · Reborn Digital 2026<br />
               Indore, Madhya Pradesh, India<br /><br />
-              GST: 23DFAPK0323C1ZE@<br />
+              GST: 23DFAPK0323C1ZE<br />
               <a href="/Udyam_Registration_Certificate.pdf" target="_blank" rel="noreferrer" style={{ textDecoration: 'underline' }}>MSME Certificate</a>
             </p>
           </div>
-          
+
           <div className="foot-col">
-            <h3 style={{ 
-              fontFamily: 'var(--mono)', 
-              fontSize: '10px', 
-              letterSpacing: '.15em', 
-              textTransform: 'uppercase', 
+            <h3 style={{
+              fontFamily: 'var(--mono)',
+              fontSize: '10px',
+              letterSpacing: '.15em',
+              textTransform: 'uppercase',
               color: 'var(--ink)',
               marginBottom: '18px'
             }}>Sections</h3>
@@ -55,11 +55,11 @@ export default function Footer() {
           </div>
 
           <div className="foot-col">
-            <h3 style={{ 
-              fontFamily: 'var(--mono)', 
-              fontSize: '10px', 
-              letterSpacing: '.15em', 
-              textTransform: 'uppercase', 
+            <h3 style={{
+              fontFamily: 'var(--mono)',
+              fontSize: '10px',
+              letterSpacing: '.15em',
+              textTransform: 'uppercase',
               color: 'var(--ink)',
               marginBottom: '18px'
             }}>Company</h3>
@@ -73,11 +73,11 @@ export default function Footer() {
           </div>
 
           <div className="foot-col">
-            <h3 style={{ 
-              fontFamily: 'var(--mono)', 
-              fontSize: '10px', 
-              letterSpacing: '.15em', 
-              textTransform: 'uppercase', 
+            <h3 style={{
+              fontFamily: 'var(--mono)',
+              fontSize: '10px',
+              letterSpacing: '.15em',
+              textTransform: 'uppercase',
               color: 'var(--ink)',
               marginBottom: '18px'
             }}>Legal</h3>
