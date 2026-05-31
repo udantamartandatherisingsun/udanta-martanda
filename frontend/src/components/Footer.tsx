@@ -96,7 +96,7 @@ export default function Footer() {
           © 2026 Udant Martand · उदन्त मार्तण्ड · All rights reserved
         </p>
         <p style={{ fontFamily: 'var(--mono)', fontSize: '10px', color: 'var(--ink4)' }}>
-          Designed &amp; built by <a href="https://novaedgedigitallabs.tech" style={{ color: 'var(--ink3)' }}>NovaEdge Digital Labs</a> · Indore, MP
+          Designed &amp; built by <a href="https://www.novaedgedigitallabs.tech" target="_blank" rel="noreferrer" style={{ color: 'var(--ink3)', textDecoration: 'underline' }}>NovaEdge Digital Labs</a> · Indore, MP
         </p>
       </div>
     </footer>
