@@ -9,6 +9,11 @@
             "root": "backend",
             "routePrefix": "/_/backend",
             "entrypoint": "src/server.js"
+        },
+        "admin": {
+            "root": "admin",
+            "routePrefix": "/_/admin",
+            "framework": "nextjs"
         }
     }
 }
