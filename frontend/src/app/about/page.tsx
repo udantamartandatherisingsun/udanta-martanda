@@ -20,7 +20,7 @@ export default function AboutPage() {
   useEffect(() => {
     const fetchPage = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/pages/about');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "/_/backend/api"}/pages/about`);
         if (res.ok) {
           const data = await res.json();
           setPageData(data);

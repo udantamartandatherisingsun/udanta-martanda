@@ -23,7 +23,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="newsletter">
+    <section className="newsletter" id="newsletter">
       <div className="nw-sup" style={{ 
         fontFamily: 'var(--mono)', 
         fontSize: '10px', 

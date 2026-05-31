@@ -23,7 +23,7 @@ export default function BlogGrid() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/news?category=Blog');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "/_/backend/api"}/news?category=Blog`);
         const data = await response.json();
         setItems(data);
       } catch (error) {

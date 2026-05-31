@@ -53,7 +53,7 @@ export default function SearchOverlay({ isOpen, onClose }: { isOpen: boolean, on
     setIsLoading(true);
     const delayDebounceFn = setTimeout(async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/news?search=${encodeURIComponent(searchQuery)}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "/_/backend/api"}/news?search=${encodeURIComponent(searchQuery)}`);
         if (response.ok) {
           const data = await response.json();
           setResults(data);

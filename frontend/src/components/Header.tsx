@@ -30,7 +30,7 @@ export default function Header({ onSearchOpen }: { onSearchOpen: () => void }) {
           {today} · INDORE EDITION
         </div>
         <div className="util-right">
-          <Link href="#newsletter">Newsletter</Link>
+          <Link href="/#newsletter">Newsletter</Link>
           <Link href="/newspaper">E-Newspaper</Link>
           <a href={process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:3001"} target="_blank" rel="noopener noreferrer">Admin</a>
         </div>

@@ -24,7 +24,7 @@ export default function NewsGrid({ category = 'News' }: NewsGridProps) {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/news?category=${category}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "/_/backend/api"}/news?category=${category}`);
         const data = await response.json();
         setItems(data);
       } catch (error) {

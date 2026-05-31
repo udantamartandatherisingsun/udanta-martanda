@@ -26,7 +26,7 @@ export default function Hero() {
   useEffect(() => {
     const fetchPopular = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/news?sort=popular&limit=4');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "/_/backend/api"}/news?sort=popular&limit=4`);
         if (response.ok) {
           const data = await response.json();
           if (Array.isArray(data) && data.length > 0) {
