@@ -17,6 +17,9 @@ export default function ContactPage() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [pageData, setPageData] = useState<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   useEffect(() => {
     const fetchPage = async () => {
@@ -53,6 +56,44 @@ export default function ContactPage() {
 
     return () => ctx.revert();
   }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus('loading');
+    
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "/_/backend/api"}/contacts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitStatus('success');
+        setSubmitMessage('Your message has been sent successfully. We will get back to you soon!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+        setSubmitMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      setSubmitStatus('error');
+      setSubmitMessage('Failed to send message. Please check your connection.');
+    }
+    
+    setTimeout(() => {
+      setSubmitStatus('idle');
+      setSubmitMessage('');
+    }, 5000);
+  };
 
   return (
     <div ref={containerRef}>
@@ -118,27 +159,62 @@ export default function ContactPage() {
             )}
           </div>
 
-          <div className="contact-form" style={{ padding: '3rem', border: '1px solid var(--border)', backgroundColor: 'var(--bg-paper)' }}>
+          <form onSubmit={handleSubmit} className="contact-form" style={{ padding: '3rem', border: '1px solid var(--border)', backgroundColor: 'var(--bg-paper)' }}>
             <div style={{ marginBottom: '2rem' }}>
               <label className="mono" style={{ fontSize: '0.8rem', marginBottom: '0.5rem', display: 'block' }}>FULL NAME</label>
-              <input type="text" style={{ width: '100%', padding: '1rem', border: '1px solid var(--border)', background: 'transparent', fontFamily: 'var(--font-lora)' }} placeholder="John Doe" />
+              <input 
+                type="text" 
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                style={{ width: '100%', padding: '1rem', border: '1px solid var(--border)', background: 'transparent', fontFamily: 'var(--font-lora)' }} 
+                placeholder="John Doe" 
+              />
             </div>
             
             <div style={{ marginBottom: '2rem' }}>
               <label className="mono" style={{ fontSize: '0.8rem', marginBottom: '0.5rem', display: 'block' }}>EMAIL ADDRESS</label>
-              <input type="email" style={{ width: '100%', padding: '1rem', border: '1px solid var(--border)', background: 'transparent', fontFamily: 'var(--font-lora)' }} placeholder="john@example.com" />
+              <input 
+                type="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                style={{ width: '100%', padding: '1rem', border: '1px solid var(--border)', background: 'transparent', fontFamily: 'var(--font-lora)' }} 
+                placeholder="john@example.com" 
+              />
             </div>
 
             <div style={{ marginBottom: '2rem' }}>
               <label className="mono" style={{ fontSize: '0.8rem', marginBottom: '0.5rem', display: 'block' }}>MESSAGE</label>
-              <textarea rows={5} style={{ width: '100%', padding: '1rem', border: '1px solid var(--border)', background: 'transparent', fontFamily: 'var(--font-lora)', resize: 'none' }} placeholder="How can we help?"></textarea>
+              <textarea 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={5} 
+                style={{ width: '100%', padding: '1rem', border: '1px solid var(--border)', background: 'transparent', fontFamily: 'var(--font-lora)', resize: 'none' }} 
+                placeholder="How can we help?"></textarea>
             </div>
 
-            <button className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '1.2rem' }}>
+            {submitMessage && (
+              <div style={{ 
+                marginBottom: '1rem', 
+                padding: '1rem', 
+                backgroundColor: submitStatus === 'success' ? 'rgba(0,255,0,0.1)' : 'rgba(255,0,0,0.1)',
+                color: submitStatus === 'success' ? 'var(--ink2)' : 'red',
+                border: `1px solid ${submitStatus === 'success' ? 'green' : 'red'}`
+              }}>
+                {submitMessage}
+              </div>
+            )}
+
+            <button disabled={submitStatus === 'loading'} type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '1.2rem', opacity: submitStatus === 'loading' ? 0.7 : 1 }}>
               <Send size={18} style={{ marginRight: '0.5rem' }} />
-              Send Message
+              {submitStatus === 'loading' ? 'Sending...' : 'Send Message'}
             </button>
-          </div>
+          </form>
         </div>
       </main>
 

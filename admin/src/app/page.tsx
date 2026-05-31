@@ -16,7 +16,7 @@ import { useRouter } from 'next/navigation';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' && window.location.hostname !== 'localhost' ? `${window.location.origin}/_/backend/api` : 'http://localhost:5000/api');
 
-type Section = 'news' | 'blog' | 'docs' | 'newspaper' | 'pages' | 'backup';
+type Section = 'news' | 'blog' | 'docs' | 'newspaper' | 'pages' | 'backup' | 'contacts';
 
 interface ContentItem {
   _id?: string;
@@ -33,6 +33,11 @@ interface ContentItem {
   // Page specific
   slug?: string;
   metadata?: Record<string, string>;
+  // Contact specific
+  name?: string;
+  email?: string;
+  message?: string;
+  createdAt?: string;
 }
 
 export default function AdminPage() {
@@ -69,6 +74,7 @@ export default function AdminPage() {
     else if (activeSection === 'news') url = `${API_BASE_URL}/news?category=News`;
     else if (activeSection === 'newspaper') url = `${API_BASE_URL}/newspapers`;
     else if (activeSection === 'pages') url = `${API_BASE_URL}/pages`;
+    else if (activeSection === 'contacts') url = `${API_BASE_URL}/contacts`;
 
     try {
       const res = await fetch(url, {
@@ -112,6 +118,7 @@ export default function AdminPage() {
     let url = `${API_BASE_URL}/news/${id}`;
     if (activeSection === 'newspaper') url = `${API_BASE_URL}/newspapers/${id}`;
     else if (activeSection === 'pages') url = `${API_BASE_URL}/pages/${id}`;
+    else if (activeSection === 'contacts') url = `${API_BASE_URL}/contacts/${id}`;
 
     try {
       const res = await fetch(url, { 
@@ -178,6 +185,7 @@ export default function AdminPage() {
     { id: 'docs', label: 'Documentaries', icon: <Video size={18} /> },
     { id: 'newspaper', label: 'Newspaper', icon: <NewspaperIcon size={18} /> },
     { id: 'pages', label: 'Pages (About/Contact)', icon: <Layout size={18} /> },
+    { id: 'contacts', label: 'Inquiries', icon: <Phone size={18} /> },
     { id: 'backup', label: 'Backup & Restore', icon: <Database size={18} /> },
   ];
 
@@ -245,7 +253,7 @@ export default function AdminPage() {
           <div className="sec-head">
             <span className="sec-tag">{sections.find(s => s.id === activeSection)?.label} Management</span>
             <div className="sec-line"></div>
-            {activeSection !== 'backup' && (
+            {activeSection !== 'backup' && activeSection !== 'contacts' && (
               <button 
                 className="btn btn-primary" 
                 style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
@@ -270,8 +278,8 @@ export default function AdminPage() {
               <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                 <thead>
                   <tr style={{ borderBottom: '1px solid var(--border3)', color: 'var(--ink4)', fontSize: '11px', textTransform: 'uppercase', fontFamily: 'var(--mono)' }}>
-                    <th style={{ padding: '16px 20px' }}>{activeSection === 'pages' ? 'Slug / Title' : 'Title'}</th>
-                    <th style={{ padding: '16px 20px' }}>{activeSection === 'newspaper' ? 'Issue Date' : 'Type'}</th>
+                    <th style={{ padding: '16px 20px' }}>{activeSection === 'pages' ? 'Slug / Title' : activeSection === 'contacts' ? 'Name / Email' : 'Title'}</th>
+                    <th style={{ padding: '16px 20px' }}>{activeSection === 'newspaper' ? 'Issue Date' : activeSection === 'contacts' ? 'Message' : 'Type'}</th>
                     <th style={{ padding: '16px 20px', width: '120px' }}>Actions</th>
                   </tr>
                 </thead>
@@ -284,20 +292,33 @@ export default function AdminPage() {
                     items.map((item) => (
                       <tr key={item._id || item.slug} style={{ borderBottom: '1px solid var(--border)', fontSize: '14px' }}>
                         <td style={{ padding: '16px 20px', fontWeight: 500, color: 'var(--ink)' }}>
-                          {activeSection === 'pages' ? `${item.slug} - ${item.title}` : item.title}
+                          {activeSection === 'pages' ? `${item.slug} - ${item.title}` : activeSection === 'contacts' ? `${item.name} (${item.email})` : item.title}
                         </td>
                         <td style={{ padding: '16px 20px', color: 'var(--ink3)', fontFamily: 'var(--mono)', fontSize: '12px' }}>
-                          {activeSection === 'newspaper' ? new Date(item.issueDate!).toLocaleDateString() : (item.category || activeSection)}
+                          {activeSection === 'newspaper' ? new Date(item.issueDate!).toLocaleDateString() : activeSection === 'contacts' ? (item.message && item.message.length > 50 ? item.message.substring(0, 50) + '...' : item.message) : (item.category || activeSection)}
                         </td>
                         <td style={{ padding: '16px 20px', display: 'flex', gap: '12px' }}>
-                          <button 
-                            onClick={() => handleEdit(item)}
-                            style={{ background: 'none', border: 'none', color: 'var(--ink4)', cursor: 'pointer', transition: 'color 0.2s' }}
-                            onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'}
-                            onMouseOut={(e) => e.currentTarget.style.color = 'var(--ink4)'}
-                          >
-                            <Edit2 size={16} />
-                          </button>
+                          {activeSection !== 'contacts' && (
+                            <button 
+                              onClick={() => handleEdit(item)}
+                              style={{ background: 'none', border: 'none', color: 'var(--ink4)', cursor: 'pointer', transition: 'color 0.2s' }}
+                              onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'}
+                              onMouseOut={(e) => e.currentTarget.style.color = 'var(--ink4)'}
+                            >
+                              <Edit2 size={16} />
+                            </button>
+                          )}
+                          {activeSection === 'contacts' && (
+                            <button 
+                              onClick={() => alert(`Message from ${item.name} (${item.email}):\n\n${item.message}`)}
+                              style={{ background: 'none', border: 'none', color: 'var(--ink4)', cursor: 'pointer', transition: 'color 0.2s' }}
+                              onMouseOver={(e) => e.currentTarget.style.color = 'var(--gold)'}
+                              onMouseOut={(e) => e.currentTarget.style.color = 'var(--ink4)'}
+                              title="View full message"
+                            >
+                              <Eye size={16} />
+                            </button>
+                          )}
                           <button 
                             onClick={() => handleDelete(item._id || item.slug || '')}
                             style={{ background: 'none', border: 'none', color: 'var(--ink4)', cursor: 'pointer', transition: 'color 0.2s' }}
