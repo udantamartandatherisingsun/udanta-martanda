@@ -955,6 +955,7 @@ footer { background: var(--bg1); border-top: 1px solid var(--border2) }
 @media(max-width:800px) {
     .masthead { padding: 22px }
     .header-util { padding: 9px 22px }
+    nav.main-nav { justify-content: flex-start; }
     .news-grid, .blog-grid { grid-template-columns: 1fr }
     .news-card, .blog-card { border-right: none !important; border-bottom: 1px solid var(--border2) }
     .news-card:last-child, .blog-card:last-child { border-bottom: none }
