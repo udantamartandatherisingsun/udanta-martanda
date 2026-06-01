@@ -19,13 +19,16 @@ files.forEach(f => {
   let content = fs.readFileSync(f, "utf8");
   
   // Replace single quotes surrounding the interpolated string
-  content = content.replace(/'\$\{process\.env\.NEXT_PUBLIC_API_URL \|\| "\/_\/backend\/api"\}(.*?)'/g, "`\${process.env.NEXT_PUBLIC_API_URL || \"/_/backend/api\"}$1`");
+  content = content.replace(/'\$\{process\.env\.NEXT_PUBLIC_API_URL \|\| "\/_\/backend\/api"\}(.*?)'/g, "`\${process.env.NEXT_PUBLIC_API_URL || \"http://localhost:5000/api\"}$1`");
   
   // Fix constant strings where it was assigned to a variable, e.g. API_BASE_URL
-  content = content.replace(/const API_BASE_URL = `\$\{process\.env\.NEXT_PUBLIC_API_URL \|\| "\/_\/backend\/api"\}`/g, "const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || \"/_/backend/api\"");
+  content = content.replace(/const API_BASE_URL = `\$\{process\.env\.NEXT_PUBLIC_API_URL \|\| "\/_\/backend\/api"\}`/g, "const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || \"http://localhost:5000/api\"");
   
   // also single quotes issue without closing
-  content = content.replace(/'\$\{process\.env\.NEXT_PUBLIC_API_URL \|\| "\/_\/backend\/api"\}'/g, "process.env.NEXT_PUBLIC_API_URL || \"/_/backend/api\"");
+  content = content.replace(/'\$\{process\.env\.NEXT_PUBLIC_API_URL \|\| "\/_\/backend\/api"\}'/g, "process.env.NEXT_PUBLIC_API_URL || \"http://localhost:5000/api\"");
+  
+  // Also fix if it's already using the fixed version but with the old fallback
+  content = content.replace(/\|\| "\/_\/backend\/api"/g, '|| "http://localhost:5000/api"');
 
   fs.writeFileSync(f, content);
 });

@@ -3,6 +3,7 @@
 import { Search } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header({ onSearchOpen }: { onSearchOpen: () => void }) {
   const pathname = usePathname();
@@ -68,6 +69,7 @@ export default function Header({ onSearchOpen }: { onSearchOpen: () => void }) {
         ))}
 
         <div className="nav-right">
+          <ThemeToggle />
           <div className="nav-icon" onClick={onSearchOpen}>
             <Search size={14} />
             <span>Search</span>

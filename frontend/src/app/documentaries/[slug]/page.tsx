@@ -57,7 +57,7 @@ export default function DocumentaryDetailPage() {
 
     const fetchDoc = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "/_/backend/api"}/news/slug/${params.slug}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/news/slug/${params.slug}`);
         if (!res.ok) {
           setError(true);
           return;

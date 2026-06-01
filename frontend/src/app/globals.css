@@ -39,6 +39,25 @@ video {
     --hindi: var(--font-noto-hindi);
 }
 
+:root.light {
+    --bg: #F8F5F0;
+    --bg1: #F0EBE1;
+    --bg2: #E6DFD3;
+    --bg3: #D8D0C3;
+    --bg4: #CABFB0;
+    --ink: #120F0C;
+    --ink2: #383127;
+    --ink3: #5E5345;
+    --ink4: #857867;
+    --ink5: #A89B88;
+    --red: #A60015;
+    --red-d: #C4001A;
+    --gold: #9C7808;
+    --border: #E6DFD3;
+    --border2: #D8D0C3;
+    --border3: #CABFB0;
+}
+
 /* ── Base ──────────────────────────────────────── */
 html {
     scroll-behavior: smooth;

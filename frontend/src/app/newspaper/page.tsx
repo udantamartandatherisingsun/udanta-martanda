@@ -30,7 +30,7 @@ export default function NewspaperPage() {
   useEffect(() => {
     const fetchEditions = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "/_/backend/api"}/newspapers`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/newspapers`);
         const data = await response.json();
         setEditions(data);
       } catch (error) {
