@@ -8,7 +8,7 @@ import newspaperRoutes from './routes/newspaperRoutes.js';
 import pageRoutes from './routes/pageRoutes.js';
 import backupRoutes from './routes/backupRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
-
+import newsletterRoutes from './routes/newsletterRoutes.js';
 
 // Load env vars
 dotenv.config();
@@ -36,7 +36,7 @@ app.use('/api/newspapers', newspaperRoutes);
 app.use('/api/pages', pageRoutes);
 app.use('/api/backup', backupRoutes);
 app.use('/api/contacts', contactRoutes);
-
+app.use('/api/newsletter', newsletterRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

@@ -7,15 +7,36 @@ export default function Newsletter() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email && email.includes('@')) {
       setStatus('loading');
-      setTimeout(() => {
-        setStatus('success');
-        setEmail('');
-        setTimeout(() => setStatus('idle'), 4000);
-      }, 800);
+      
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+        const res = await fetch(`${apiUrl}/newsletter`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          setStatus('success');
+          setEmail('');
+          setTimeout(() => setStatus('idle'), 4000);
+        } else {
+          setStatus('error');
+          setTimeout(() => setStatus('idle'), 2000);
+        }
+      } catch (error) {
+        console.error('Error subscribing to newsletter:', error);
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 2000);
+      }
     } else {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 2000);

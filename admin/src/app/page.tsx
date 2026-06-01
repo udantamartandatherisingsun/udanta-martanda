@@ -9,14 +9,14 @@ import {
   Plus, Edit2, Trash2, X, Save, 
   FileText, Video, BookOpen, Layout, Phone, LogOut, Newspaper as NewspaperIcon,
   Database, Download, Upload, AlertTriangle, CheckCircle2, RefreshCw,
-  Lock, Unlock, Key, Eye, EyeOff
+  Lock, Unlock, Key, Eye, EyeOff, Mail
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' && window.location.hostname !== 'localhost' ? `${window.location.origin}/_/backend/api` : 'http://localhost:5000/api');
 
-type Section = 'news' | 'blog' | 'docs' | 'newspaper' | 'pages' | 'backup' | 'contacts';
+type Section = 'news' | 'blog' | 'docs' | 'newspaper' | 'pages' | 'backup' | 'contacts' | 'subscribers';
 
 interface ContentItem {
   _id?: string;
@@ -38,6 +38,8 @@ interface ContentItem {
   email?: string;
   message?: string;
   createdAt?: string;
+  // Subscriber specific
+  status?: string;
 }
 
 export default function AdminPage() {
@@ -75,6 +77,7 @@ export default function AdminPage() {
     else if (activeSection === 'newspaper') url = `${API_BASE_URL}/newspapers`;
     else if (activeSection === 'pages') url = `${API_BASE_URL}/pages`;
     else if (activeSection === 'contacts') url = `${API_BASE_URL}/contacts`;
+    else if (activeSection === 'subscribers') url = `${API_BASE_URL}/newsletter`;
 
     try {
       const res = await fetch(url, {
@@ -82,7 +85,7 @@ export default function AdminPage() {
       });
       if (res.status === 401) handleLogout();
       const data = await res.json();
-      setItems(Array.isArray(data) ? data : []);
+      setItems(Array.isArray(data) ? data : (data.data || []));
     } catch (err) {
       console.error('Failed to fetch items:', err);
     }
@@ -119,6 +122,7 @@ export default function AdminPage() {
     if (activeSection === 'newspaper') url = `${API_BASE_URL}/newspapers/${id}`;
     else if (activeSection === 'pages') url = `${API_BASE_URL}/pages/${id}`;
     else if (activeSection === 'contacts') url = `${API_BASE_URL}/contacts/${id}`;
+    else if (activeSection === 'subscribers') url = `${API_BASE_URL}/newsletter/${id}`;
 
     try {
       const res = await fetch(url, { 
@@ -186,6 +190,7 @@ export default function AdminPage() {
     { id: 'newspaper', label: 'Newspaper', icon: <NewspaperIcon size={18} /> },
     { id: 'pages', label: 'Pages (About/Contact)', icon: <Layout size={18} /> },
     { id: 'contacts', label: 'Inquiries', icon: <Phone size={18} /> },
+    { id: 'subscribers', label: 'Subscribers', icon: <Mail size={18} /> },
     { id: 'backup', label: 'Backup & Restore', icon: <Database size={18} /> },
   ];
 
@@ -253,7 +258,7 @@ export default function AdminPage() {
           <div className="sec-head">
             <span className="sec-tag">{sections.find(s => s.id === activeSection)?.label} Management</span>
             <div className="sec-line"></div>
-            {activeSection !== 'backup' && activeSection !== 'contacts' && (
+            {activeSection !== 'backup' && activeSection !== 'contacts' && activeSection !== 'subscribers' && (
               <button 
                 className="btn btn-primary" 
                 style={{ display: 'flex', gap: '8px', alignItems: 'center' }}
@@ -278,8 +283,8 @@ export default function AdminPage() {
               <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                 <thead>
                   <tr style={{ borderBottom: '1px solid var(--border3)', color: 'var(--ink4)', fontSize: '11px', textTransform: 'uppercase', fontFamily: 'var(--mono)' }}>
-                    <th style={{ padding: '16px 20px' }}>{activeSection === 'pages' ? 'Slug / Title' : activeSection === 'contacts' ? 'Name / Email' : 'Title'}</th>
-                    <th style={{ padding: '16px 20px' }}>{activeSection === 'newspaper' ? 'Issue Date' : activeSection === 'contacts' ? 'Message' : 'Type'}</th>
+                    <th style={{ padding: '16px 20px' }}>{activeSection === 'pages' ? 'Slug / Title' : activeSection === 'contacts' ? 'Name / Email' : activeSection === 'subscribers' ? 'Email' : 'Title'}</th>
+                    <th style={{ padding: '16px 20px' }}>{activeSection === 'newspaper' ? 'Issue Date' : activeSection === 'contacts' ? 'Message' : activeSection === 'subscribers' ? 'Status' : 'Type'}</th>
                     <th style={{ padding: '16px 20px', width: '120px' }}>Actions</th>
                   </tr>
                 </thead>
@@ -292,13 +297,13 @@ export default function AdminPage() {
                     items.map((item) => (
                       <tr key={item._id || item.slug} style={{ borderBottom: '1px solid var(--border)', fontSize: '14px' }}>
                         <td style={{ padding: '16px 20px', fontWeight: 500, color: 'var(--ink)' }}>
-                          {activeSection === 'pages' ? `${item.slug} - ${item.title}` : activeSection === 'contacts' ? `${item.name} (${item.email})` : item.title}
+                          {activeSection === 'pages' ? `${item.slug} - ${item.title}` : activeSection === 'contacts' ? `${item.name} (${item.email})` : activeSection === 'subscribers' ? item.email : item.title}
                         </td>
                         <td style={{ padding: '16px 20px', color: 'var(--ink3)', fontFamily: 'var(--mono)', fontSize: '12px' }}>
-                          {activeSection === 'newspaper' ? new Date(item.issueDate!).toLocaleDateString() : activeSection === 'contacts' ? (item.message && item.message.length > 50 ? item.message.substring(0, 50) + '...' : item.message) : (item.category || activeSection)}
+                          {activeSection === 'newspaper' ? new Date(item.issueDate!).toLocaleDateString() : activeSection === 'contacts' ? (item.message && item.message.length > 50 ? item.message.substring(0, 50) + '...' : item.message) : activeSection === 'subscribers' ? item.status : (item.category || activeSection)}
                         </td>
                         <td style={{ padding: '16px 20px', display: 'flex', gap: '12px' }}>
-                          {activeSection !== 'contacts' && (
+                          {activeSection !== 'contacts' && activeSection !== 'subscribers' && (
                             <button 
                               onClick={() => handleEdit(item)}
                               style={{ background: 'none', border: 'none', color: 'var(--ink4)', cursor: 'pointer', transition: 'color 0.2s' }}
