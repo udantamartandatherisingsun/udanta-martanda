@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchOverlay from '@/components/SearchOverlay';
@@ -139,10 +140,12 @@ export default function ArticlePage() {
           {/* Hero image */}
           {article.imageUrl && (
             <div style={{ position: 'relative', width: '100%', height: '480px', marginBottom: '3rem', overflow: 'hidden' }}>
-              <img
+              <Image
                 src={article.imageUrl}
                 alt={article.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 800px) 100vw, 800px"
               />
               <div className="fig-texture" />
             </div>

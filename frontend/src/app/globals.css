@@ -947,12 +947,17 @@ footer { background: var(--bg1); border-top: 1px solid var(--border2) }
     .hero { grid-template-columns: 1fr }
     .hero-side { border-top: 1px solid var(--border2) }
     .foot-main { grid-template-columns: 1fr 1fr }
+    .news-grid, .blog-grid { grid-template-columns: repeat(2, 1fr) }
+    .news-card:nth-child(even), .blog-card:nth-child(even) { border-right: none; }
+    .news-card:nth-child(odd), .blog-card:nth-child(odd) { border-right: 1px solid var(--border2); }
+    .news-card:last-child, .blog-card:last-child { border-right: none; }
 }
 @media(max-width:800px) {
     .masthead { padding: 22px }
     .header-util { padding: 9px 22px }
     .news-grid, .blog-grid { grid-template-columns: 1fr }
-    .news-card, .blog-card { border-right: none; border-bottom: 1px solid var(--border2) }
+    .news-card, .blog-card { border-right: none !important; border-bottom: 1px solid var(--border2) }
+    .news-card:last-child, .blog-card:last-child { border-bottom: none }
     .two-col { grid-template-columns: 1fr }
     .col-pane:first-child { border-right: none; border-bottom: 1px solid var(--border2) }
     .foot-brand { grid-column: span 2; border-right: none; border-bottom: 1px solid var(--border) }

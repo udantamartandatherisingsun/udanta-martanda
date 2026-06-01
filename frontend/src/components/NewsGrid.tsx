@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-
+import Image from 'next/image';
 interface NewsItem {
   _id: string;
   slug: string;
@@ -66,11 +66,13 @@ export default function NewsGrid({ category = 'News' }: NewsGridProps) {
           viewport={{ once: true }}
           transition={{ delay: idx * 0.1 }}
         >
-          <div className="n-img">
-            <img 
+          <div className="n-img" style={{ position: 'relative' }}>
+            <Image 
               src={item.imageUrl || '/assets/placeholder.png'} 
               alt={item.title} 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, 300px"
             />
             <div className="fig-texture"></div>
           </div>

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import Link from 'next/link';
-
+import Image from 'next/image';
 interface BlogPost {
   _id: string;
   title: string;
@@ -69,11 +69,13 @@ export default function BlogGrid() {
           <h2><Link href={`/blog/${post.slug}`}>{post.title}</Link></h2>
           <p style={{ fontSize: '14px', marginBottom: '18px' }}>{post.excerpt}</p>
           <div className="author-row">
-            <div className="ava" style={{ overflow: 'hidden', padding: 0 }}>
-              <img 
+            <div className="ava" style={{ overflow: 'hidden', padding: 0, position: 'relative' }}>
+              <Image 
                 src={post.imageUrl || '/assets/placeholder-avatar.png'} 
                 alt={post.author} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="40px"
               />
             </div>
             <div className="by-info">

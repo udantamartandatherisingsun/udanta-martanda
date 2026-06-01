@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-
+import Image from 'next/image';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 interface DocItem {
@@ -89,12 +89,14 @@ export default function DocumentariesAndNewspaper() {
                 whileHover={{ x: 5 }}
                 style={{ cursor: 'pointer' }}
               >
-                <div className="doc-thumb">
+                <div className="doc-thumb" style={{ position: 'relative' }}>
                   {doc.imageUrl ? (
-                    <img 
+                    <Image 
                       src={doc.imageUrl} 
                       alt={doc.title} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, 300px"
                     />
                   ) : (
                     <div style={{ width: '100%', height: '100%', background: 'var(--bg-paper)' }}></div>
@@ -134,9 +136,9 @@ export default function DocumentariesAndNewspaper() {
               className="np-item"
               whileHover={{ x: 5 }}
             >
-              <div className="np-thumb">
+              <div className="np-thumb" style={{ position: 'relative' }}>
                 {np.imageUrl ? (
-                  <img src={np.imageUrl} alt={np.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <Image src={np.imageUrl} alt={np.title} fill style={{ objectFit: 'cover' }} sizes="150px" />
                 ) : (
                   <div className="np-lines">
                     <span></span><span></span><span></span><span></span><span></span>

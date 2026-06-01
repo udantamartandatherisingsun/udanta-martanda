@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SearchOverlay from '@/components/SearchOverlay';
@@ -186,10 +187,12 @@ export default function DocumentaryDetailPage() {
                 border: '1px solid var(--border3)'
               }}
             >
-              <img
+              <Image
                 src={doc.imageUrl}
                 alt={doc.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 800px) 100vw, 800px"
               />
               <div className="fig-texture" />
               {doc.videoUrl ? (

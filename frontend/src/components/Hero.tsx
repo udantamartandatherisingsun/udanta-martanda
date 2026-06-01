@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-
+import Image from 'next/image';
 interface NewsItem {
   _id?: string;
   slug: string;
@@ -54,10 +54,13 @@ export default function Hero() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           style={{ position: 'relative' }}
         >
-          <img 
+          <Image 
             src="/assets/bengal_hindi_200_years.png" 
             alt="200 Years of Hindi in Bengal" 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            fill
+            style={{ objectFit: 'cover' }}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
           />
           <div className="fig-texture"></div>
           <div className="fig-inner" style={{ background: 'rgba(0,0,0,0.2)' }}>
